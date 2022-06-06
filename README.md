@@ -42,25 +42,25 @@ Al ser la primera vez, nos descargará la imagen de mysql desde DockerHub, en ca
 
 En este archivo definiremos los servicios que componen nuestra aplicación para que puedan ejecutarse juntos en un entorno aislado. 
 
-A continuación os muestro un ejemplo del archivo `.yml`  aplicado a esta actividad:
+A continuación os muestro un ejemplo del archivo `.yml`  aplicado a esta actividad. También se puede encontrar una plantilla predefinida para wordpress en el DockerHub.
 
 ```dockerfile
 version: '3.1'  #aquí se especifíca la versión del dockerCompose
 
-services: # esta sección sirve para añadir las imágenes o otros serviccios que vamos a usar 
+services: # esta sección sirve para añadir las imágenes o otros servicios que vamos a usar 
 
   wordpress:
     image: wordpress
     restart: always
     ports:
-      - 8080:80
-    environment:
+      - 8080:80 # especificamos el puerto local que vamos a usar.
+    environment: # configuración para wordpress. Fuente -> dockerHub
       WORDPRESS_DB_HOST: db
       WORDPRESS_DB_USER: usuario
       WORDPRESS_DB_PASSWORD: constraseña
       WORDPRESS_DB_NAME: db
 
-  db:
+  db: #configuración para mysql. Fuente -> dockerHub
     image: mysql:5.7
     restart: always
     environment:
@@ -69,3 +69,17 @@ services: # esta sección sirve para añadir las imágenes o otros serviccios qu
       MYSQL_PASSWORD: contraseña
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
 ```
+
+### 2. **Ejecutamos el docker compose:**
+
+Dentro de la carpeta del proyecto mediante el siguiente comando:
+```powershell-interactive
+docker-compose up
+```
+
+
+
+
+### 3. **Comprobación:**
+
+Tras la correcta instalación, por último, visitamos al [localhost](http://localhost:8080/wp-admin/install.php) que hemos indicado en la configuración.
