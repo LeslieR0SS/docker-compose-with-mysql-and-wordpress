@@ -77,6 +77,10 @@ docker-compose up
 ```
 
 
+https://user-images.githubusercontent.com/91556932/172172692-73479653-181a-4b50-9f69-041f156c9354.mov
+
+
+
 
 
 ### 3. **Comprobación:**
