@@ -1,0 +1,23 @@
+version: '3.1'  #aquí se especifíca la versión del dockerCompose
+
+services: # esta sección sirve para añadir las imágenes o otros servicios que vamos a usar 
+
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 8080:80 # especificamos el puerto local que vamos a usar.
+    environment: # configuración para wordpress. Fuente -> dockerHub
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: usuario
+      WORDPRESS_DB_PASSWORD: constraseña
+      WORDPRESS_DB_NAME: db
+
+  db: #configuración para mysql. Fuente -> dockerHub
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: contraseña
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
