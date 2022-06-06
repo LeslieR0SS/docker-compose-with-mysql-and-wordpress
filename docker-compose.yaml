@@ -16,8 +16,9 @@ services: # esta sección sirve para añadir las imágenes o otros servicios que
   db: #configuración para mysql. Fuente -> dockerHub
     image: mysql:5.7
     restart: always
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_DATABASE: db
       MYSQL_USER: usuario
       MYSQL_PASSWORD: contraseña
-      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      MYSQL_RANDOM_ROOT_PASSWORD: 'contraseña'

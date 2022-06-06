@@ -67,7 +67,6 @@ services: # esta sección sirve para añadir las imágenes o otros servicios que
       MYSQL_DATABASE: db
       MYSQL_USER: usuario
       MYSQL_PASSWORD: contraseña
-      MYSQL_RANDOM_ROOT_PASSWORD: '1'
 ```
 
 ### 2. **Ejecutamos el docker compose:**
@@ -83,3 +82,12 @@ docker-compose up
 ### 3. **Comprobación:**
 
 Tras la correcta instalación, por último, visitamos al [localhost](http://localhost:8080/wp-admin/install.php) que hemos indicado en la configuración.
+
+![localhost](img/localhost.png)
+
+Y para terminar, ejecutamos el siguiente comando:
+
+```powershell
+docker compose down
+```
+![docker compose down](img/docker-compose-down.png)
